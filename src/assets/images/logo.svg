@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80px" height="50px" viewBox="0 0 237.34 226.14">
+    <defs>
+        <style>.cls-1{isolation:isolate;}.cls-2{opacity:0.4;mix-blend-mode:multiply;fill:url(#linear-gradient);}.cls-3{fill:#a8dedb;}.cls-3,.cls-5,.cls-6{stroke:#1f2687;}.cls-3,.cls-4,.cls-5,.cls-6,.cls-9{stroke-miterlimit:10;stroke-width:6px;}.cls-4{fill:#9dcc96;}.cls-4,.cls-9{stroke:#212683;}.cls-5{fill:#f2a7c5;}.cls-6,.cls-9{fill:none;}.cls-7{fill:#212683;}.cls-8{fill:#1f2687;}</style>
+        <linearGradient id="linear-gradient" x1="22.39" y1="89.8" x2="226.77" y2="89.8" gradientTransform="matrix(0.95, -0.32, 0.32, 0.95, -22.61, 55.41)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#efa6c2"/>
+            <stop offset="1" stop-color="#96cdbd"/>
+        </linearGradient>
+    </defs>
+    <title>Film</title> 
+    <g class="cls-1">
+        <g id="Layer_2" data-name="Layer 2">
+            <g id="Layer_1-2" data-name="Layer 1">
+                <path class="cls-2" d="M161.11,68.18A56.58,56.58,0,0,0,144,77.4a67.89,67.89,0,1,0-86.88,55.47A56.69,56.69,0,1,0,157,174.08a56.68,56.68,0,1,0,4.12-105.9Z"/>
+                <path class="cls-3" d="M170.35,152.94H222a12.39,12.39,0,0,1,12.39,12.39v13.55A12.39,12.39,0,0,1,222,191.28H103.69"/>
+                <path class="cls-4" d="M29.58,135.44a77.08,77.08,0,1,0,0-42.48"/>
+                <circle class="cls-5" cx="103.69" cy="114.2" r="10.09"/>
+                <circle class="cls-5" cx="72.65" cy="83.16" r="16.65" transform="translate(-37.52 75.73) rotate(-45)"/>
+                <circle class="cls-5" cx="134.73" cy="145.23" r="16.65" transform="translate(-63.23 137.8) rotate(-45)"/>
+                <circle class="cls-5" cx="134.73" cy="83.16" r="16.65" transform="translate(-19.34 119.62) rotate(-45)"/>
+                <circle class="cls-5" cx="72.65" cy="145.23" r="16.65" transform="translate(-81.41 93.91) rotate(-45)"/>
+                <line class="cls-6" x1="212.69" y1="152.94" x2="212.69" y2="191.28"/>
+                <line class="cls-6" x1="186.48" y1="152.94" x2="186.48" y2="191.28"/>
+                <line class="cls-6" x1="160.27" y1="191.28" x2="160.27" y2="166.54"/>
+                <circle class="cls-7" cx="26.16" cy="115.16" r="4.41"/>
+                <path class="cls-8" d="M13,34.61H10.24V31.86a2.5,2.5,0,1,0-5,0v2.75H2.5a2.5,2.5,0,0,0,0,5H5.25v2.75a2.5,2.5,0,0,0,5,0V39.61H13a2.5,2.5,0,1,0,0-5Z"/>
+                <path class="cls-8" d="M20.74,180.36H18v-2.75a2.5,2.5,0,1,0-5,0v2.75H10.24a2.5,2.5,0,0,0,0,5H13v2.75a2.5,2.5,0,0,0,5,0v-2.75h2.75a2.5,2.5,0,1,0,0-5Z"/>
+                <path class="cls-8" d="M213.54,104h-1.82v-1.82a1.65,1.65,0,1,0-3.3,0V104H206.6a1.65,1.65,0,0,0,0,3.3h1.82v1.82a1.65,1.65,0,0,0,3.3,0v-1.82h1.82a1.65,1.65,0,1,0,0-3.3Z"/>
+                <line class="cls-9" x1="180.78" y1="114.19" x2="140.75" y2="114.19"/>
+                <line class="cls-9" x1="130.5" y1="114.19" x2="137" y2="114.19"/>
+            </g>
+        </g>
+    </g>
+</svg>
