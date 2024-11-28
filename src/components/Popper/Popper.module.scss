@@ -1,0 +1,12 @@
+.wrapper{
+    width: 100%;
+    background-color: rgba(59, 59, 59, 0.947);
+    border-radius: 8px;
+    max-height: min((100vh - 96px) - 60px,734px);
+
+    display: flex;
+    flex-direction: column;
+    border: 5px;
+    border-radius: 10px;
+
+}
