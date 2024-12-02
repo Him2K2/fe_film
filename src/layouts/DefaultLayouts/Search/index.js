@@ -11,7 +11,8 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import { Wrapper as PopperWrapper } from "../../../components/Popper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {searchService} from "../../../service/searchService"
-import FilmItem from "../../../components/filmItem/FilmItem";
+import SearchFilmItem from "../../../components/SearchfilmItem/SreachFilmItem";
+
 
 const cx = classNames.bind(styles);
 
@@ -69,7 +70,7 @@ function Search() {
             <PopperWrapper>
               <h5 className={cx("search-title")}>Accounts</h5>
               {searchResult.map((item) => (
-                <FilmItem></FilmItem>
+                <SearchFilmItem></SearchFilmItem>
               ))}
             </PopperWrapper>
           </div>

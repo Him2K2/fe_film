@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import styles from "./FilmItem.module.scss";
+import styles from "./SearchFilmItem.module.scss";
 import classNames from "classnames/bind";
 import Image from "../Image";
 import PropTypes from "prop-types";
 
 const cx = classNames.bind(styles);
-function FilmItem({ data }) {
+function SearchFilmItem({ data }) {
   return (
     <Link to={`/@${data.nickname}`} className={cx("wrapper")}>
       <Image className={cx("avatar")} src={data.avatar} alt={data.full_name}></Image>
@@ -26,8 +26,8 @@ function FilmItem({ data }) {
     </Link>
   );
 }
-FilmItem.propTypes={
+SearchFilmItem.propTypes={
   data:PropTypes.object.isRequired,
 }
 
-export default FilmItem;
+export default SearchFilmItem;
