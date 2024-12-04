@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
+import FilmItem from "../../components/filmItem";
 import styles from "./DefaultLayouts.module.scss";
 import Header from "./Header";
-import FilmItem from "../../components/FilmItem";
 
 const cx = classNames.bind(styles);
 
@@ -24,7 +24,8 @@ function DefaultLayouts() {
         <FilmItem></FilmItem>
         <FilmItem></FilmItem>
         <FilmItem></FilmItem>
-  
+        <FilmItem></FilmItem>
+        <FilmItem></FilmItem>
   
       </div>
     </div>
