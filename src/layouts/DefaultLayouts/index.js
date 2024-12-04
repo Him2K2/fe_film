@@ -24,10 +24,8 @@ function DefaultLayouts() {
         <FilmItem></FilmItem>
         <FilmItem></FilmItem>
         <FilmItem></FilmItem>
-        <FilmItem></FilmItem>
-        <FilmItem></FilmItem>
-        <FilmItem></FilmItem>
-        <FilmItem></FilmItem>
+  
+  
       </div>
     </div>
   );

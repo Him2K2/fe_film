@@ -1,11 +1,13 @@
 import Home from "../pages/Home";
+import Login from "../pages/Login/Login";
 
 
-import routes from "../config/routes";
+import route from "../config/routes";
 
 //PublicRoutes
 const publicRoutes = [
-    {path:routes.home,component:Home},
+    {path:route.home,component:Home},
+    {path:route.login,component:Login}
    
 
 ];

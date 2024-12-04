@@ -1,8 +1,9 @@
 import { Fragment } from 'react';
-
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import { publicRoutes } from './routes';
 import DefaultLayouts from './layouts/DefaultLayouts';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {
