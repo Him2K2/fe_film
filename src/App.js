@@ -1,9 +1,8 @@
-import { Fragment } from 'react';
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
-import { publicRoutes } from './routes';
-import DefaultLayouts from './layouts/DefaultLayouts';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Fragment } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DefaultLayouts from './layouts/DefaultLayouts';
+import { publicRoutes } from './routes';
 
 
 function App() {
@@ -11,6 +10,16 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
+          {/* {privateRoutes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={
+              <ProtectedRoute allowedRoles={route.allowedRoles}>
+                <route.component />
+              </ProtectedRoute>
+            }/>
+            ))} */}
           {publicRoutes.map((route,index)=>{
             let Layout = DefaultLayouts
             if(route.layout===1){

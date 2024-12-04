@@ -1,19 +1,40 @@
+import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import styles from "./Header.module.scss";
+import React, { useState } from "react";
+// import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import images from "../../../assets/images"
-import Search from "../Search";
-import {  faCartPlus } from "@fortawesome/free-solid-svg-icons";
-import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
+import images from "../../../assets/images";
 import Image from "../../../components/Image";
-import { useState ,useEffect} from "react";
+import Search from "../Search";
+import styles from "./Header.module.scss";
 
 const cx = classNames.bind(styles);
 function Header() {
+  const [currentUser, setCurrentUser] = useState(0)
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("http://192.168.1.34:8086/api/v1/users/login", {
+        username: "admin", // Thay bằng giá trị nhập từ form
+        password: "123456",
+      });
+  
+      if (response.status === 200) {
+        const userData = response.data;
+        // console.log(userData)
+        setCurrentUser(1); // Đặt trạng thái đăng nhập thành công
+        console.log("Thông tin người dùng:", userData);
+      }
 
-  const currentUser = 1;
+    } catch (error) {
+      console.error("Đăng nhập thất bại:", error.response?.data || error.message);
+      alert("Đăng nhập thất bại!");
+    }
+  };
+  
     return ( 
         <header className={cx("wrapper")}>
         <div className={cx("inner")}>
@@ -50,7 +71,7 @@ function Header() {
                 </>
             ):(
               <Link>
-              <button className={cx("loginbtn")} >Đăng Nhập</button>
+              <button onClick={handleLogin} className={cx("loginbtn")} >Đăng Nhập</button>
               </Link>
             )}
               </div>
