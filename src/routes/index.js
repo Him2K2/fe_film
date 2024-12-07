@@ -1,23 +1,30 @@
-import Home from "../pages/Home";
+import Home from "../pages/Home/";
 import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 import Unauthorized from "../pages/Unauthorized";
 
-import route from "../config/routes";
+import routes from "../config/routes";
 
 //PublicRoutes
 const publicRoutes = [
-    {path:route.home,component:Home},
-    {path:route.login,component:Login},
-    {path:route.unauthorized, component:Unauthorized}
+    {path:routes.home,component:Home},
+  
+    {path:routes.unauthorized, component:Unauthorized}
 ];
+const signRoutes = [
 
+    {path:routes.login,component:Login},
+    {path:routes.register,component:Register},
+
+]
 
 const privateRoutes = [
     {
-        path: route.admin, // component: AdminPage, 
+        path: routes.admin, // component: AdminPage, 
         allowedRoles: [1], // Chỉ admin được phép truy cập
     },
+
 ];
 
-export { privateRoutes, publicRoutes };
+export { privateRoutes, publicRoutes,signRoutes };
 

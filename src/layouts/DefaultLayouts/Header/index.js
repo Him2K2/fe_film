@@ -2,7 +2,7 @@ import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 // import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -10,30 +10,38 @@ import images from "../../../assets/images";
 import Image from "../../../components/Image";
 import Search from "../Search";
 import styles from "./Header.module.scss";
+import {jwtDecode} from 'jwt-decode';
+
 
 const cx = classNames.bind(styles);
 function Header() {
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const token = localStorage.getItem("token");
+    const decoded = jwtDecode(token);
+    
+   try{
+    console.log('decoded.username',token)
+    const user_query = await axios.get(`http://localhost:8086/api/v1/users/${decoded.username}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }});
+      console.log(user_query);
+   }catch(error){
+    console.error("Lỗi khi gọi API:", error.response?.data || error.message);
+
+   }
+  }
+  
+
+
   const [currentUser, setCurrentUser] = useState(0)
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post("http://192.168.1.34:8086/api/v1/users/login", {
-        username: "admin", // Thay bằng giá trị nhập từ form
-        password: "123456",
-      });
   
-      if (response.status === 200) {
-        const userData = response.data;
-        // console.log(userData)
-        setCurrentUser(1); // Đặt trạng thái đăng nhập thành công
-        console.log("Thông tin người dùng:", userData);
-      }
-
-    } catch (error) {
-      console.error("Đăng nhập thất bại:", error.response?.data || error.message);
-      alert("Đăng nhập thất bại!");
-    }
-  };
   
     return ( 
         <header className={cx("wrapper")}>
@@ -70,8 +78,8 @@ function Header() {
                 </div>
                 </>
             ):(
-              <Link>
-              <button onClick={handleLogin} className={cx("loginbtn")} >Đăng Nhập</button>
+              <Link to="/login">
+                <button className={cx("loginbtn")} >Đăng Nhập</button>
               </Link>
             )}
               </div>

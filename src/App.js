@@ -2,7 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DefaultLayouts from './layouts/DefaultLayouts';
-import { publicRoutes } from './routes';
+import { ProtectedRoute } from './hooks';
+import { privateRoutes,publicRoutes,signRoutes } from './routes';
+
 
 
 function App() {
@@ -10,7 +12,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          {/* {privateRoutes.map((route, index) => (
+          {privateRoutes.map((route, index) => (
           <Route
             key={index}
             path={route.path}
@@ -19,7 +21,8 @@ function App() {
                 <route.component />
               </ProtectedRoute>
             }/>
-            ))} */}
+            ))}
+
           {publicRoutes.map((route,index)=>{
             let Layout = DefaultLayouts
             if(route.layout===1){
@@ -36,6 +39,16 @@ function App() {
              </Layout>
             }
              ></Route>
+          })}
+
+          {signRoutes.map((route,index)=>{
+            const Page = route.component
+            return<Route
+            key={index}
+            path={route.path}
+            element={<Page></Page>}
+            >
+            </Route>
           })}
           
         </Routes>
