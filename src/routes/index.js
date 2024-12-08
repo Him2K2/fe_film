@@ -2,8 +2,10 @@ import Home from "../pages/Home/";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Unauthorized from "../pages/Unauthorized";
+import HomeUser from "../pages/Manager/User";
 
 import routes from "../config/routes";
+import Manager from "../pages/Manager";
 
 //PublicRoutes
 const publicRoutes = [
@@ -14,15 +16,16 @@ const publicRoutes = [
 const signRoutes = [
 
     {path:routes.login,component:Login},
-    {path:routes.register,component:Register},
+    {path:routes.register,component:Register}
 
 ]
 
 const privateRoutes = [
     {
-        path: routes.admin, // component: AdminPage, 
-        allowedRoles: [1], // Chỉ admin được phép truy cập
+        path: routes.admin,  component: Manager
+        // allowedRoles: [2], // Chỉ admin được phép truy cập
     },
+
 
 ];
 

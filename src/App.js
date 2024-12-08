@@ -11,17 +11,28 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+
+        
         <Routes>
-          {privateRoutes.map((route, index) => (
-          <Route
+          
+          {/* {privateRoutes.map((route, index) => (
+           const Page = route.component
+           return<Route
             key={index}
             path={route.path}
-            element={
-              <ProtectedRoute allowedRoles={route.allowedRoles}>
-                <route.component />
-              </ProtectedRoute>
-            }/>
-            ))}
+            element={<Page></Page>}
+            >
+           </Route>
+            ))} */}
+            {privateRoutes.map((route,index)=>{
+            const Page = route.component
+            return<Route
+            key={index}
+            path={route.path}
+            element={<Page></Page>}
+            >
+            </Route>
+          })}
 
           {publicRoutes.map((route,index)=>{
             let Layout = DefaultLayouts

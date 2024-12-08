@@ -6,9 +6,9 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   // Nếu user chưa đăng nhập hoặc role không nằm trong allowedRoles, chuyển hướng
-  if (!user || !allowedRoles.includes(user.role)) {
-    return <Navigate to="/unauthorized" />;
-  }
+  // if (!user || !allowedRoles.includes(user.role)) {
+  //   return <Navigate to="/unauthorized" />;
+  // }
 
   // Render component nếu quyền hợp lệ
   return children;

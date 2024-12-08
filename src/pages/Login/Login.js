@@ -3,13 +3,27 @@ import { jwtDecode } from 'jwt-decode'
 import classNames from "classnames/bind";
 import styles from "./Login.module.scss";
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
+
+
+
+
 export default function Login() {
+  const isToken = localStorage.getItem("token");
   let navigate = useNavigate();
+  useEffect(() => {
+
+    if (isToken) {
+      navigate("/")
+      return;
+    }}
+  )
+
+  
 
   const [user, setUser] = useState({
     username:"",
@@ -18,27 +32,27 @@ export default function Login() {
   })
   const [token, setToken] = useState(null);
 
+
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
      
       const response = await axios.post("http://localhost:8086/api/v1/users/login", user);
       const token = response.data;
-      // console.log(response.data)
+
       setToken(token);
       localStorage.setItem("token", token);
 
       const decoded = jwtDecode(token);
-      console.log(decoded);
-      // const cors = require('cors');
+      console.log(decoded)
      
    
 
       if (response.status === 200) {
+        if(decoded.role == "ADMIN"){
+          navigate("/admin")
+        }
 
-        // const userData = response.data;
-        // console.log(userData)
-        // console.log("Thông tin người dùng:", userData);
         navigate("/")
         return;
       }
@@ -48,6 +62,8 @@ export default function Login() {
       alert("Đăng nhập thất bại!");
     }
   };
+
+ 
   
   const handleInputChange=(e)=>{
     const {name,value}=e.target;
