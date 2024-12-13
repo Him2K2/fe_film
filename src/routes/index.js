@@ -5,7 +5,8 @@ import Unauthorized from "../pages/Unauthorized";
 import HomeUser from "../pages/Manager/User";
 
 import routes from "../config/routes";
-import Manager from "../pages/Manager";
+import ManagerFilm from "../pages/Manager/Film";
+import EditUser from "../pages/Manager/User/EditUser";
 
 //PublicRoutes
 const publicRoutes = [
@@ -21,11 +22,10 @@ const signRoutes = [
 ]
 
 const privateRoutes = [
-    {
-        path: routes.admin,  component: Manager
-        // allowedRoles: [2], // Chỉ admin được phép truy cập
-    },
-
+    
+    {  path: routes.editUser, component:EditUser},
+    {  path: routes.homeUser,component:HomeUser},
+    {  path: routes.managerfilm,component:ManagerFilm},
 
 ];
 

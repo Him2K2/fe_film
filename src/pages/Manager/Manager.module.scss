@@ -1,0 +1,30 @@
+.wrapper{
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction:row;
+    justify-content:start;
+    width: 100%;
+
+}
+.nav{
+ 
+    display: flex;
+    max-width: 100%;
+    flex-direction:column;
+    
+   
+
+}
+.content{
+    display: flex;
+   justify-content: center;
+   min-width: 500px;
+   font-size: 1.2rem;
+
+
+}

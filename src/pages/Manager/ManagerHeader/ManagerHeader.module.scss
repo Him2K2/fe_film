@@ -1,0 +1,23 @@
+.wrapper{
+    background-color: rgba(6, 101, 244, 0.795);
+    height: 63px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+.logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btnlogout{
+    border-radius: 9px;
+    background-color: aquamarine;
+    color: #979595;
+}

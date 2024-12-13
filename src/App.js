@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DefaultLayouts from './layouts/DefaultLayouts';
 import { ProtectedRoute } from './hooks';
 import { privateRoutes,publicRoutes,signRoutes } from './routes';
+import Manager from './pages/Manager';
+
+
 
 
 
@@ -24,14 +27,22 @@ function App() {
             >
            </Route>
             ))} */}
-            {privateRoutes.map((route,index)=>{
+           {privateRoutes.map((route,index)=>{
+            let Layout = Manager
+            if(route.layout===1){
+              Layout = Fragment
+            }
+
             const Page = route.component
-            return<Route
-            key={index}
-            path={route.path}
-            element={<Page></Page>}
-            >
-            </Route>
+            return <Route
+             key={index} 
+             path={route.path} 
+             element={
+              <Layout>
+             <Page></Page>
+             </Layout>
+            }
+             ></Route>
           })}
 
           {publicRoutes.map((route,index)=>{

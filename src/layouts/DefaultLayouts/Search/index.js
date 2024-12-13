@@ -10,9 +10,8 @@ import {
 import HeadlessTippy from "@tippyjs/react/headless";
 import { Wrapper as PopperWrapper } from "../../../components/Popper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {searchService} from "../../../service/searchService"
+import { searchService } from "../../../service/searchService";
 import SearchFilmItem from "../../../components/SearchfilmItem/SreachFilmItem";
-
 
 const cx = classNames.bind(styles);
 
@@ -25,12 +24,6 @@ function Search() {
   const debounce = useDebounce(searchValue, 456);
 
   useEffect(() => {
-    return () => {
-      setShowResult(false);
-    };
-  }, []);
-
-  useEffect(() => {
     if (!debounce.trim()) {
       setSearchResult([]);
       return;
@@ -38,12 +31,21 @@ function Search() {
 
     setLoading(true);
 
-    searchService(debounce)
+    searchService(debounce, 5)
       .then((data) => {
-        setSearchResult(data);
+        if (Array.isArray(data)) {
+          setSearchResult(data);
+        } else {
+          console.error("Invalid data format", data);
+          setSearchResult([]);
+        }
         setLoading(false);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        setSearchResult([]);
+        setLoading(false);
+      });
   }, [debounce]);
 
   const inputRef = useRef();
@@ -59,19 +61,23 @@ function Search() {
       setSearchValue(value);
     }
   };
+  console.log(searchResult)
 
   return (
+    
     <div>
       <HeadlessTippy
-        visible={showResult && searchResult.length > 0}
+        visible
         interactive
         render={(attrs) => (
           <div className={cx("search-result")} tabIndex="-1" {...attrs}>
             <PopperWrapper>
-              <h5 className={cx("search-title")}>Accounts</h5>
-              {searchResult.map((item) => (
-                <SearchFilmItem></SearchFilmItem>
-              ))}
+              
+              {Array.isArray(searchResult) &&
+                searchResult.length > 0 &&
+                searchResult.map((item) => (
+                  <SearchFilmItem key={item.id} data={item} />
+                ))}
             </PopperWrapper>
           </div>
         )}
@@ -97,7 +103,9 @@ function Search() {
               <FontAwesomeIcon icon={faCircleXmark} />
             </button>
           )}
-          {loading && <FontAwesomeIcon className={cx("spinner")} icon={faSpinner} />}
+          {loading && (
+            <FontAwesomeIcon className={cx("spinner")} icon={faSpinner} />
+          )}
           <button className={cx("search-btn")}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>

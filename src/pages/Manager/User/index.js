@@ -7,6 +7,24 @@ export default function HomeUser() {
   const [currentPage, setCurrentPage] = useState(0); // Trang hiện tại
   const [totalPages, setTotalPages] = useState(0); // Tổng số trang
 
+  
+  const deleteUser = async (id, currentPage) => {
+    const token = localStorage.getItem("token"); // Lấy token từ localStorage
+    try {
+      await axios.delete(`http://localhost:8086/api/v1/users/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      alert("Xóa người dùng thành công!"); // Thông báo xóa thành công
+      loadUsers(currentPage); // Tải lại dữ liệu sau khi xóa
+    } catch (error) {
+      console.error("Lỗi khi xóa người dùng:", error);
+      alert("Lỗi khi xóa người dùng!"); // Thông báo khi xảy ra lỗi
+    }
+  };
+
+
   // Gọi API để tải danh sách người dùng
   const loadUsers = async (page = 0) => {
     const token = localStorage.getItem("token");
@@ -29,15 +47,7 @@ export default function HomeUser() {
     }
   };
 
-  // Xóa người dùng và làm mới danh sách
-  const deleteUser = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8086/api/v1/users/${id}`);
-      loadUsers(currentPage); // Tải lại dữ liệu sau khi xóa
-    } catch (error) {
-      console.error("Lỗi khi xóa người dùng:", error);
-    }
-  };
+
 
   // Xử lý khi chuyển trang
   const handlePageChange = (page) => {
@@ -60,6 +70,7 @@ export default function HomeUser() {
               <th>#</th>
               <th>Username</th>
               <th>Name</th>
+              <th>Birth</th>
               <th>Password</th>
               <th>Email</th>
               <th>Budget</th>
@@ -72,18 +83,19 @@ export default function HomeUser() {
                 <td>{user.id}</td>
                 <td>{user.username}</td>
                 <td>{user.name}</td>
+                <td>{user.dateOfBirth}</td>
                 <td>{user.password}</td>
                 <td>{user.email}</td>
                 <td>{user.budget}</td>
                 <td>
                   <Link
-                    to={`/viewUser/${user.id}`}
+                    to={`/register`}
                     className="btn btn-primary mx-2"
                   >
-                    View
+                    Add
                   </Link>
                   <Link
-                    to={`/editUser/${user.id}`}
+                    to={`/editUser/${user.username}`}
                     className="btn btn-outline-primary mx-2"
                   >
                     Edit

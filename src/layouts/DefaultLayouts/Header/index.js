@@ -26,7 +26,7 @@ function Header() {
     const decoded = jwtDecode(token);
 
     if(decoded.role == "ADMIN"){
-      navigate("/admin")
+      navigate("/homeUser")
       return;
 
     }

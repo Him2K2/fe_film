@@ -1,0 +1,51 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: rgba(27, 22, 22, 0.9);
+    padding: 20px;
+    width: 90%; /* Chiếm 90% chiều rộng màn hình, đảm bảo tương thích */
+    max-width: 600px; /* Không vượt quá 600px */
+    max-height: 90%; /* Chiếm tối đa 90% chiều cao màn hình */
+    overflow-y: auto; /* Bật scroll nếu nội dung quá dài */
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    padding: 9px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #f81100;
+    border-radius: 50%;
+  }
+  
+  .modal-img {
+    max-width: 100%; 
+    height: auto; 
+    margin: 20px 0;
+  }
+  
+  .watch-btn {
+    padding: 10px 20px;
+    background-color: #c81010;
+    border-radius: 9px;
+  }  

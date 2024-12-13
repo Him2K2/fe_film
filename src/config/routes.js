@@ -1,8 +1,11 @@
 const routes = {
     home:"/",
     login:"/login",
-    admin: "/admin",
+  
+    managerfilm:"/managerfilm",
+    homeUser:"/homeUser",
     register:"/register",
+    editUser:"/editUser/:username",
     unauthorized: "/unauthorized",
     
 }

@@ -50,7 +50,7 @@ export default function Login() {
 
       if (response.status === 200) {
         if(decoded.role == "ADMIN"){
-          navigate("/admin")
+          navigate("/homeUser")
         }
 
         navigate("/")
