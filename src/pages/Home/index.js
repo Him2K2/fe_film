@@ -27,6 +27,7 @@ function Home() {
           "Content-Type": "application/json",
         },
       });
+  
 
       const film = result.data; 
       if (film && film.imgBannerFilm) {

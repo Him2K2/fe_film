@@ -31,6 +31,7 @@ export default function Register() {
     e.preventDefault();
     await axios.post("http://localhost:8086/api/v1/users/register",user);
     navigate("/")
+    
 
   }
 

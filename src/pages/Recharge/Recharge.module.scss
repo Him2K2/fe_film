@@ -1,0 +1,64 @@
+.wapper{
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.info{
+    
+
+}
+.caption2{
+    margin-top: 150px;
+    margin-bottom: 50px;
+   font-size: 2rem;
+   font-weight: bold;
+
+}
+.infoaccount{
+    display: flex;
+    height: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction:column;
+    justify-content: space-around;
+    padding: 50px;
+
+}
+.id{
+
+}
+.input{
+
+}
+.button{
+    margin-top: 50px;
+    margin-left: 320px;
+    background-color: rgb(4, 255, 0);
+    border-radius: 99px;
+    border-color: #fff;
+    color: #fff;
+    padding: 10px;
+
+}
+.momo{
+
+}
+.momoimg{
+    width: 50px;
+    height: 50px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.pptt{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+
+}
+.qrimg{
+    width: 200px;
+    height: 200px;
+}

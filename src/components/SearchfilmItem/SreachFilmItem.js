@@ -13,7 +13,7 @@ function SearchFilmItem({ data }) {
   }
 
   return (
-    <Link to={`/@${data.id}`} className={cx("wrapper")}>
+    <Link to={`/${data.urlFilm}`} className={cx("wrapper")}>
       <Image className={cx("avatar")} src={data.imgFilm} alt={data.caption} />
       <div className={cx("info")}>
         <h5 className={cx("name")}>{data.filmName}</h5>

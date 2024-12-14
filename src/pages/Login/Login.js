@@ -9,9 +9,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 
-
-
-
 export default function Login() {
   const isToken = localStorage.getItem("token");
   let navigate = useNavigate();
@@ -23,7 +20,6 @@ export default function Login() {
     }}
   )
 
-  
 
   const [user, setUser] = useState({
     username:"",
@@ -44,10 +40,6 @@ export default function Login() {
       localStorage.setItem("token", token);
 
       const decoded = jwtDecode(token);
-      console.log(decoded)
-     
-   
-
       if (response.status === 200) {
         if(decoded.role == "ADMIN"){
           navigate("/homeUser")

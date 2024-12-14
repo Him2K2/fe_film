@@ -13,8 +13,7 @@ export default function EditUser() {
     budget: '',
   });
 
-  const [originalUser, setOriginalUser] = useState({}); // Lưu dữ liệu ban đầu
-
+  const [originalUser, setOriginalUser] = useState({}); 
   useEffect(() => {
     getUserById();
   }, [username]);
